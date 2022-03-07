@@ -10,29 +10,80 @@
         <header>
             <h1>JustStreamIt</h1>
             <nav>
-                <a href="./index.html">Acceuil</a>
-                <a href="./index.html">Catégorie</a>
+                <ul>
+                    <li>
+                        <a href="./index.html">Acceuil</a>
+                    </li>
+                    <li>
+                        <a href="./index.html">Catégorie</a>
+                    </li>
+                </ul>
             </nav>
         </header>
         <main>
-            <article>
-                <h2>Titre du Meilleur Film</h2>
-            </article>
-            <article>
-                <h2>Meilleurs Films</h2>
-            </article>
-            <article>
-                <h2>Catégorie 1</h2>
-            </article>
-            <article>
-                <h2>Catégorie 2</h2>
-            </article>
-            <article>
-                <h2>Catégorie 3</h2>
-            </article>
+            <section class="jumbotron">
+                <article class="best">
+                    <h2 class="best title">Titre du Meilleur Film</h2>
+                    <button>Lecture</button>
+                    <p class="best description">Desciption</p>
+                </article>
+                <figure>
+                    <img alt="Affiche du meilleur Film imdb" src="https://m.media-amazon.com/images/M/MV5BNTY4ZDk5MzYtNjk2Zi00ZWY3LTgwZjUtNDc5MWEzMWFlOTQzXkEyXkFqcGdeQXVyNjU1MTEwMjI@._V1_UY268_CR1,0,182,268_AL_.jpg">
+                </figure>
+            </section>
+            <section>
+                <article>
+                    <h2>Films les mieux Notés</h2>
+                    <div class="diaporama">
+                        <figure class="bests one">
+                            <img alt="Second meilleur Film imdb" src="">
+                        </figure>
+                        <figure class="bests two">
+                            <img alt="Troisième meilleur Film imdb" src="">
+                        </figure>
+                        <figure class="bests three">
+                            <img alt="Quatriième meilleur Film imdb" src="">
+                        </figure>
+                        <figure class="bests four">
+                            <img alt="Cinquième meilleur Film imdb" src="">
+                        </figure>
+                        <figure class="bests five">
+                            <img alt="Sixième meilleur Film imdb" src="">
+                        </figure>
+                        <figure class="bests six">
+                            <img alt="Septième meilleur Film imdb" src="">
+                        </figure>
+                        <figure class="bests seven">
+                            <img alt="Huitième meilleur Film imdb" src="">
+                        </figure>
+                    </div>
+                    <figure></figure>
+                </article>
+                <article>
+                    <h2>Catégorie 1</h2>
+                    <figure></figure>
+                </article>
+                <article>
+                    <h2>Catégorie 2</h2>
+                    <figure></figure>
+                </article>
+                <article>
+                    <h2>Catégorie 3</h2>
+                    <figure></figure>
+                </article>
+            </section>
+            <button id="myBtn">Open Modal</button>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p>
+                </div>
+            </div>
         </main>
         <footer>
-
+            <script src="./script.js"></script>
         </footer>
     </body>
 </html>

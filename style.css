@@ -1,13 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0.5em 0 0 0.5em;
+}
+
 body {
     background-color: black;
     color: antiquewhite;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box;
     width: 100%;
+    padding-left: 20px;
 }
 
 header {
@@ -17,9 +21,10 @@ header {
     width: 100%;
 }
 
-nav {
+nav ul {
     display: flex;
     align-items: center;
+    list-style: none;
 }
 
 a {
@@ -30,4 +35,75 @@ a {
 
   h1 {
     max-width: 50%;
+}
+
+.jumbotron {
+    border: 2px solid lightgrey;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%
+}
+
+.jumbotron article {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.diaporama {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.diaporama figure {
+    max-width: 20%;
+}
+
+.five,
+.six,
+.seven {
+    display: none;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
