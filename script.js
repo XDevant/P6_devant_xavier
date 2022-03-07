@@ -1,18 +1,28 @@
 // Modal
-let modal = document.getElementById("myModal");
+let modal = document.getElementsByClassName("modal")[0];
 let images = document.getElementsByTagName("img");
 let span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
+
+
+// When the user clicks on a movie picture, open the modal
 for (let i=0; i<images.length; i++){
-    images[i].onclick = () => {
+    images[i].onclick = (event) => {
         modal.style.display = "block";
+        load_data(event);
       }
+}
+
+let load_data = async (event) => {
+    data = await fetchBests(event.target.name)
+    let title = modal.getElementsByTagName("h3")[0];
+    title.innerText = data.title
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = () => {
   modal.style.display = "none";
+
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -21,6 +31,8 @@ window.onclick = (event) => {
     modal.style.display = "none";
   }
 }
+
+
 
 // Fetch n-bests movies
 let fetchBests = async (url) => {
@@ -38,10 +50,12 @@ let loadBests = async () => {
     response = await fetchBests(url);
     bestMovie = response.results[0]
     document.getElementsByClassName("best title")[0].innerHTML = bestMovie.title;
-    description = await fetchBests(bestMovie.url);
-    document.getElementsByClassName("best description")[0].innerHTML = description.description;
+    data = await fetchBests(bestMovie.url);
+    document.getElementsByClassName("best description")[0].innerHTML = data.description;
     for (let i=0; i<5; i++) {
-        document.getElementsByTagName("img")[i].src = response.results[i].image_url;
+        image = document.getElementsByTagName("img")[i];
+        image.src = response.results[i].image_url;
+        image.name = response.results[i].url;
     }
 }
 
