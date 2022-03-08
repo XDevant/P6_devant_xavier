@@ -14,12 +14,10 @@ for (let i=0; i<images.length; i++){
 
 // Fills modal list
 let load_data = async (event) => {
-    data = await fetchBests(event.target.name)
-    let title = modal.getElementsByTagName("h3")[0];
-    title.innerText = data.title
-    let image = modal.getElementsByTagName("img")[0];
-    image.src = data.image_url;
-    let rows = modal.getElementsByTagName("li");
+    data = await fetchData(event.target.name)
+    modal.querySelector("h3").innerText = data.title;
+    modal.querySelector("img").src = data.image_url;
+    let rows = modal.querySelectorAll("li");
     rows[0].innerText = `Genre : ${data.genres[0]}`;
     rows[1].innerText = `Date de sortie : ${data.date_published}`;
     rows[2].innerText = `Evaluation : ${data.rated}`;
@@ -90,26 +88,12 @@ let loadJumbotronData = async (result) => {
     document.querySelector(".best.description").innerHTML = data.description;
 }
 
-let loadBests = async () => {
-    let baseUrl = "http://localhost:8000/api/v1/titles";
-    let url = baseUrl + "?imdb_score_min=8&sort_by=-imdb_score";
-    response = await fetchBests(url);
-    bestMovie = response.results[0]
-    document.getElementsByClassName("best title")[0].innerHTML = bestMovie.title;
-    data = await fetchBests(bestMovie.url);
-    document.getElementsByClassName("best description")[0].innerHTML = data.description;
-    for (let i=0; i<8; i++) {
-        image = document.getElementsByTagName("img")[i];
-        image.src = response.results[i].image_url;
-        image.name = response.results[i].url;
-    }
-}
-// querySelector
-
 loadCategory("best")
 loadCategory("animation")
 loadCategory("fantasy")
 loadCategory("sci-fi")
+
+
 /* let myBlob = await response.blob();
 let objectURL = URL.createObjectURL(myBlob);
 let image = document.createElement('img');

@@ -67,18 +67,34 @@ a {
 
 .galery img {
     min-width: 25%;
+    padding: 20px;
     transition: min-width ease-in 2s, width ease-in 2s;
 }
 
 .galery {
     display: flex;
     align-items: center;
-    width: 70%;
+    width: 60%;
     overflow: hidden;
+    height:100%;
 }
 
 .control {
-    width: 15%;
+    width: 20%; 
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control button {
+    height: 100%;
+    text-align: center;
+    justify-items: center;
+    font-size: 4em;
+    padding: 10px;
+    background-color: darkslategrey;
+    color: antiquewhite;
 }
 
 
