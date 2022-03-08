@@ -14,11 +14,16 @@ body {
     padding-left: 20px;
 }
 
-header {
+header,
+.modal-data {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
+}
+
+.modal-data ul {
+    max-width: 60%;
 }
 
 nav ul {
@@ -55,20 +60,27 @@ a {
 
 .diaporama {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+    width: 100%;
 }
 
-.diaporama figure {
-    max-width: 20%;
+.galery img {
+    min-width: 25%;
+    transition: min-width ease-in 2s, width ease-in 2s;
 }
 
-.five,
-.six,
-.seven {
-    display: none;
+.galery {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    overflow: hidden;
 }
+
+.control {
+    width: 15%;
+}
+
 
 /* The Modal (background) */
 .modal {
