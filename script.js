@@ -1,7 +1,7 @@
 // Modal
-let modal = document.getElementsByClassName("modal")[0];
-let images = document.getElementsByTagName("img");
-let span = document.getElementsByClassName("close")[0];
+let modal = document.querySelector(".modal");
+let images = document.querySelectorAll("img");
+let span = document.querySelector(".close");
 
 
 // When the user clicks on a movie picture, open the modal
@@ -92,6 +92,50 @@ loadCategory("best")
 loadCategory("animation")
 loadCategory("fantasy")
 loadCategory("sci-fi")
+
+// navigate galeries
+let leftButtons = document.querySelectorAll(".left button");
+let rightButtons = document.querySelectorAll(".right button");
+let counters = {
+    "best": 0,
+    "animation": 0,
+    "fantasy": 0,
+    "sci-fi": 0
+}
+
+let foldImage = category => {
+    let counter = counters[category];
+    if (counter < 3) {
+        document.querySelectorAll(`.galery.${category} img`)[counter].style.width = 0;
+        document.querySelectorAll(`.galery.${category} img`)[counter].style.minWidth = 0;
+        document.querySelectorAll(`.galery.${category} img`)[counter].style.padding = 0;
+        counters[category] += 1;
+    }
+}
+
+let unfoldImage = category => {
+    let counter = counters[category];
+    if (counter > 0) {
+        document.querySelectorAll(`.galery.${category} img`)[counter - 1].style.width = "auto";
+        document.querySelectorAll(`.galery.${category} img`)[counter - 1].style.minWidth = "25%";
+        document.querySelectorAll(`.galery.${category} img`)[counter - 1].style.padding = "1vw 2vw";
+        counters[category] -= 1
+    }
+}
+
+for (let i=0; i<leftButtons.length; i++) {
+    leftButtons[i].onclick = (event) => {
+        let category = event.target.name;
+        unfoldImage(category);
+      }
+    rightButtons[i].onclick = (event) => {
+        let category = event.target.name;
+        foldImage(category);
+      }
+}
+
+
+
 
 
 /* let myBlob = await response.blob();

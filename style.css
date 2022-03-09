@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0.5em 0 0 0.5em;
+    padding: 0;
 }
 
 body {
@@ -11,7 +11,11 @@ body {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    padding-left: 20px;
+}
+
+header {
+    align-items: center;
+    padding: 2em 0 1em 1em;
 }
 
 header,
@@ -26,28 +30,52 @@ header,
     max-width: 60%;
 }
 
+nav {
+    width: 60%;
+}
+
 nav ul {
     display: flex;
+    justify-content: left;
     align-items: center;
     list-style: none;
+    width: 100%;
+}
+
+nav ul li {
+    padding-left: 3em;
 }
 
 a {
-    padding: 0 20px;
     color: antiquewhite;
     text-decoration: none;
   }
 
-  h1 {
-    max-width: 50%;
+h1 {
+    width: 40%;
+}
+
+h2 {
+    padding: 1em 0 0 1em;
 }
 
 .jumbotron {
     border: 2px solid lightgrey;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%
+    justify-content: space-evenly;
+    align-items: stretch;
+    width: 90%;
+    margin-left: 5%;
+    background-color: rgb(17, 3, 3);
+    border-radius: 10px 10px;
+}
+
+.jumbotron figure {
+    padding: 1em 1em;
+}
+
+.jumbotron img {
+    height: 50vh;
 }
 
 .jumbotron article {
@@ -56,6 +84,11 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    max-width: 30%;
+}
+
+.jumbotron button {
+    padding: 0.5em 1em;
 }
 
 .diaporama {
@@ -67,17 +100,24 @@ a {
 
 .galery img {
     min-width: 25%;
-    padding: 20px;
-    transition: min-width ease-in 2s, width ease-in 2s;
+    padding: 1vw 2vw;
+    transition: min-width ease-out 0.6s, width ease-out 0.6s, padding ease-out 0.6s;
 }
 
 .galery {
     display: flex;
     align-items: center;
     width: 60%;
-    overflow: hidden;
     height:100%;
+    padding: 1%;
+    overflow-x: scroll;
+    scrollbar-color: transparent transparent;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
+
+.galery::-webkit-scrollbar {
+    display: none;
+  }
 
 .control {
     width: 20%; 
@@ -92,7 +132,7 @@ a {
     text-align: center;
     justify-items: center;
     font-size: 4em;
-    padding: 10px;
+    padding: 2vw 1vw;
     background-color: darkslategrey;
     color: antiquewhite;
 }
