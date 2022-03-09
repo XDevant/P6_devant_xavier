@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", function(){
         rows[5].innerText = `Acteurs : ${data.actors.join(', ')}`;
         rows[6].innerText = `Durée : ${data.duration}mn`;
         rows[7].innerText = `Pays d'origine : ${data.countries.join(', ')}`;
-        rows[8].innerText = `Résultats Box-office : ${data.worldwide_gross_income ? data.worldwide_gross_income + ' ' + data.budget_currency : "Inconnu"}`;
+        rows[8].innerText = `Résultats Box-office : ${data.worldwide_gross_income ? data.worldwide_gross_income + '$' : "Inconnu"}`;
         rows[9].innerText = `Résumé : ${data.long_description}`;
     }
 
