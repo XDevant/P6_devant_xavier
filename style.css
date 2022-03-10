@@ -97,6 +97,9 @@ h2 {
 
 .jumbotron button {
     padding: 0.5em 1em;
+    color: aquamarine;
+    background-color: black;
+    border: 1px thick hsl(240, 0%, 10%);
 }
 
 .linebreak,
@@ -187,7 +190,7 @@ article:hover .scanner {
 .modal-content {
     background-color: #272626;
     margin: 15% auto;
-    padding: 20px;
+    padding: 1em;
     border: 1px solid #888;
     width: 80%;
 }
@@ -195,7 +198,11 @@ article:hover .scanner {
 .modal-data {
     display: flex;
     flex-wrap: wrap-reverse;
-    width: 100%;
+    width: 90%;
+}
+
+.modal-data img {
+    padding: 1em 0;
 }
 
 .close {
@@ -260,6 +267,10 @@ article:hover .scanner {
         background-color: black;
         border: none;
         padding: 1vw 1vw;
+    }
+
+    .modal-content {
+        padding: 0.4em 0.2em;
     }
 }
 
