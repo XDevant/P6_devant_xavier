@@ -92,6 +92,7 @@ h2 {
     align-items: center;
     justify-content: space-around;
     max-width: 30%;
+    padding: 0;
 }
 
 .jumbotron button {
@@ -246,6 +247,19 @@ article:hover .scanner {
 
     nav li {
         padding-left: 3em;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    h1,
+    h2 {
+        padding-left: 0.4em;
+    }
+
+    .control button {
+        background-color: black;
+        border: none;
+        padding: 1vw 1vw;
     }
 }
 
