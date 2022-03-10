@@ -11,6 +11,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    font-family: "Open Sans", sans-serif;
 }
 
 header {
@@ -56,10 +57,12 @@ a {
 h1 {
     min-width: 40%;
     padding: 0 0 0 1em;
+    font-family: "Merriweather", serif;
 }
 
 h2 {
     padding: 1em 0 0 1em;
+    font-family: "Merriweather", serif;
 }
 
 .jumbotron {
@@ -69,7 +72,7 @@ h2 {
     align-items: stretch;
     width: 90%;
     margin-left: 5%;
-    background-color: rgb(17, 3, 3);
+    background-color: rgb(15, 15, 15);
     border-radius: 10px 10px;
 }
 
@@ -139,6 +142,11 @@ h2 {
     padding: 1vw 1vw;
     background-color: hsl(240 0% 10%);
     color: antiquewhite;
+}
+
+.control button:hover {
+    text-shadow: 1px 1px 2px #aaa;
+    box-shadow: 0px 0px 12px rgb(183, 184, 184);
 }
 
 .linebreak .line {
@@ -245,7 +253,7 @@ article:hover .scanner {
     from {
         margin-left:0%;
     } to { 
-        margin-left:80%;
+        margin-left:70%;
     }
 }
 
@@ -253,6 +261,6 @@ article:hover .scanner {
     from {
         margin-left:0%;
     } to {
-        margin-left:80%;
+        margin-left:70%;
     } 
 }
