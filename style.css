@@ -137,16 +137,27 @@ h2 {
     justify-items: center;
     font-size: 2em;
     padding: 1vw 1vw;
-    background-color: darkslategrey;
+    background-color: hsl(240 0% 10%);
     color: antiquewhite;
 }
 
-.linebreak div {
+.linebreak .line {
     width: 25%;
-    height: 2px;
-    background-color: rgb(49, 49, 49);
-    border: 1px solid rgb(69, 69, 69);
+    height: 4px;
+    background-color: hsl(240, 0%, 20%);
+    border: 1px solid hsl(240, 0%, 10%);
+    border-radius: 50%;
     margin-bottom: 1em;
+}
+
+article:hover .scanner {
+    border-radius: 50%;
+    animation: scanner-loop 4s linear 0s infinite alternate;
+    -webkit-animation: scanner-loop 4s linear 0s infinite alternate;
+    width: 30%;
+    height: 100%;
+    background-color: hsl(240, 0%, 35%);
+    box-shadow: 0px 0px 6px hsl(240, 0%, 40%);
 }
 
 /* The Modal (background) */
@@ -228,4 +239,20 @@ h2 {
     nav li {
         padding-left: 3em;
     }
+}
+
+@keyframes scanner-loop {
+    from {
+        margin-left:0%;
+    } to { 
+        margin-left:80%;
+    }
+}
+
+@-webkit-keyframes scanner-loop {
+    from {
+        margin-left:0%;
+    } to {
+        margin-left:80%;
+    } 
 }
