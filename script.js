@@ -112,11 +112,15 @@ let rightButtons = document.querySelectorAll(".right button");
 let foldImage = event => {
     let category = event.target.className;
     let width = document.querySelector(`.galery.${category} img`).clientWidth;
-    let scrolled = document.querySelector(`.galery.${category}`).scrollLeft;
-    let trailing = scrolled % width;
-    document.querySelector(`.galery.${category}`).scrollBy({
+    let galery = document.querySelector(`.galery.${category}`);
+    let scrolled = galery.scrollLeft;
+    let trail = Math.floor(scrolled % width);
+    if (width - trail < 5) {
+        width *= 2;
+    }
+    galery.scrollBy({
         top: 0,
-        left: width - trailing,
+        left: width - trail,
         behavior: 'smooth'
       });
 }
@@ -133,7 +137,16 @@ let unfoldImage = event => {
         top: 0,
         left: -width,
         behavior: 'smooth'
-      });
+    });
+    //scrolled = document.querySelector(`.galery.${category}`).scrollLeft;
+    //let scrollSize = document.querySelector(`.galery.${category}`).scrollMax;
+    //moveScrollBar(category, scrolled/scrollSize);
+}
+
+let moveScrollBar = (category, ratio) => {
+    let width = document.querySelector(`.line.${category}`).clientWidth;
+    let eye = document.querySelector(`.line.${category} .scanner`);
+    eye.style.left += Math.floor(width * ratio);
 }
 
 let switchButtons = (catégory) => {
@@ -141,7 +154,6 @@ let switchButtons = (catégory) => {
 }
 
 for (let i=0; i<leftButtons.length; i++) {
-    let category = leftButtons[i].className;
     leftButtons[i].addEventListener("click", unfoldImage);
     leftButtons[i].addEventListener("keyup", unfoldImage);
     rightButtons[i].addEventListener("click", foldImage);

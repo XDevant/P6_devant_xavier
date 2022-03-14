@@ -164,8 +164,6 @@ h2 {
 
 article:hover .scanner {
     border-radius: 50%;
-    animation: scanner-loop 4s linear 0s infinite alternate;
-    -webkit-animation: scanner-loop 4s linear 0s infinite alternate;
     width: 30%;
     height: 100%;
     background-color: hsl(240, 0%, 35%);
