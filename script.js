@@ -100,14 +100,38 @@ let loadJumbotronData = async (result) => {
     document.querySelector(".best.description").innerHTML = data.description;
 }
 
-loadCategory("best")
-loadCategory("animation")
-loadCategory("fantasy")
-loadCategory("sci-fi")
+loadCategory("best");
+loadCategory("animation");
+loadCategory("fantasy");
+loadCategory("sci-fi");
 
 // navigate galeries
 let leftButtons = document.querySelectorAll(".left button");
 let rightButtons = document.querySelectorAll(".right button");
+
+let switchButtons = (category, scrolled) => {
+    let galery = document.querySelector(`.galery.${category}`);
+    let scrollSize =  galery.scrollWidth - galery.clientWidth;
+    let leftButton = document.querySelector(`.left .${category}`);
+    let rightButton = document.querySelector(`.right .${category}`);
+    if (scrolled == 0) {
+        leftButton.disabled = true;
+        rightButton.disabled = false;
+    } else if (scrolled + 3 >= scrollSize) {
+        leftButton.disabled = false;
+        rightButton.disabled = true;
+    } else {
+        leftButton.disabled = false;
+        rightButton.disabled = false;
+    }
+}
+
+let moveScrollBar = (category, ratio) => {
+    let width = document.querySelector(`.line.${category}`).clientWidth;
+    let eye = document.querySelector(`.line.${category} .scanner`);
+    width -= eye.clientWidth;
+    eye.style.left = parseInt(Math.floor(width * ratio)) + 'px';
+}
 
 let foldImage = event => {
     let category = event.target.className;
@@ -122,36 +146,37 @@ let foldImage = event => {
         top: 0,
         left: width - trail,
         behavior: 'smooth'
-      });
+    });
+    scrolled += width - trail;
+    let scrollSize = galery.scrollWidth - galery.clientWidth;
+    moveScrollBar(category, scrolled / scrollSize);
+    switchButtons(category, scrolled);
 }
 
 let unfoldImage = event => {
     let category = event.target.className;
     let width = document.querySelector(`.galery.${category} img`).clientWidth;
-    let scrolled = document.querySelector(`.galery.${category}`).scrollLeft;
-    let trailing = scrolled % width;
-    if (trailing != 0) {
-        width = trailing;
+    let galery = document.querySelector(`.galery.${category}`);
+    let scrolled = galery.scrollLeft;
+    let trail = scrolled % width;
+    if (trail != 0) {
+        width = trail;
     }
-    document.querySelector(`.galery.${category}`).scrollBy({
+   galery.scrollBy({
         top: 0,
         left: -width,
         behavior: 'smooth'
     });
-    //scrolled = document.querySelector(`.galery.${category}`).scrollLeft;
-    //let scrollSize = document.querySelector(`.galery.${category}`).scrollMax;
-    //moveScrollBar(category, scrolled/scrollSize);
+    scrolled -= width;
+    let scrollSize =  galery.scrollWidth - galery.clientWidth;
+    moveScrollBar(category, scrolled/scrollSize);
+    switchButtons(category, scrolled);
 }
 
-let moveScrollBar = (category, ratio) => {
-    let width = document.querySelector(`.line.${category}`).clientWidth;
-    let eye = document.querySelector(`.line.${category} .scanner`);
-    eye.style.left += Math.floor(width * ratio);
-}
-
-let switchButtons = (catégory) => {
-
-}
+switchButtons("best", 0);
+switchButtons("animation", 0);
+switchButtons("fantasy", 0);
+switchButtons("sci-fi", 0);
 
 for (let i=0; i<leftButtons.length; i++) {
     leftButtons[i].addEventListener("click", unfoldImage);
