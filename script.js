@@ -29,17 +29,17 @@ window.addEventListener("DOMContentLoaded", function(){
         data = await fetchData(event.target.name)
         modal.querySelector("h3").innerText = data.title;
         modal.querySelector("img").src = data.image_url;
-        let rows = modal.querySelectorAll("li");
-        rows[0].innerText = `Genre : ${data.genres.join(', ')}`;
-        rows[1].innerText = `Date de sortie : ${data.date_published}`;
-        rows[2].innerText = `Evaluation : ${data.rated}`;
-        rows[3].innerText = `Score IMDB : ${data.imdb_score}`;
-        rows[4].innerText = `Réalisateur : ${data.directors.join(', ')}`;
-        rows[5].innerText = `Acteurs : ${data.actors.join(', ')}`;
-        rows[6].innerText = `Durée : ${data.duration}mn`;
-        rows[7].innerText = `Pays d'origine : ${data.countries.join(', ')}`;
-        rows[8].innerText = `Résultats Box-office : ${data.worldwide_gross_income ? data.worldwide_gross_income + '$' : "Inconnu"}`;
-        rows[9].innerText = `Résumé : ${data.long_description}`;
+        let rows = modal.querySelectorAll(".data");
+        rows[0].innerText = data.genres.join(', ');
+        rows[1].innerText = data.date_published;
+        rows[2].innerText = data.rated != "Not rated or unkown rating" ? data.rated : "Non disponible";
+        rows[3].innerText = data.imdb_score;
+        rows[4].innerText = data.directors.join(', ');
+        rows[5].innerText = data.actors.join(', ');
+        rows[6].innerText = data.duration + "mn";
+        rows[7].innerText = data.countries.join(', ');
+        rows[8].innerText = data.worldwide_gross_income ? data.worldwide_gross_income + '$' : "Inconnus";
+        rows[9].innerText = data.long_description;
     }
 
     for (let i=0; i<images.length; i++){
@@ -183,4 +183,12 @@ for (let i=0; i<leftButtons.length; i++) {
     leftButtons[i].addEventListener("keyup", unfoldImage);
     rightButtons[i].addEventListener("click", foldImage);
     rightButtons[i].addEventListener("keyup", foldImage);
+}
+
+let galeries = document.querySelectorAll(".galery");
+
+galeries.foreach(galery => galery.addEventListener("scroll", scrollingDisplay));
+
+let scrollingDisplay = event => {
+
 }

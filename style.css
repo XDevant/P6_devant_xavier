@@ -15,20 +15,12 @@ body {
 }
 
 header {
-    align-items: center;
-    padding: 2em 0 1em;
-}
-
-header,
-.modal-data {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
-}
-
-.modal-data ul {
-    max-width: 60%;
+    align-items: center;
+    padding: 1em 0 1em;
 }
 
 nav {
@@ -41,6 +33,7 @@ nav ul {
     align-items: center;
     list-style: none;
     width: 100%;
+    padding-left: 1em;
 }
 
 nav li {
@@ -56,13 +49,21 @@ a {
 
 h1 {
     min-width: 40%;
-    padding: 0 0 0 1em;
-    font-family: "Merriweather", serif;
 }
 
 h2 {
-    padding: 1em 0 0 1em;
+    display:none
+}
+
+h3 {
+    padding-top: 1em;
+}
+
+h1,
+h2,
+h3 {
     font-family: "Merriweather", serif;
+    padding-left: 1em;
 }
 
 .jumbotron {
@@ -93,6 +94,10 @@ h2 {
     justify-content: space-around;
     max-width: 30%;
     padding: 0;
+}
+
+.jumbotron .description {
+    font-size: smaller;
 }
 
 .jumbotron button {
@@ -162,10 +167,9 @@ h2 {
 .linebreak .line {
     width: 25%;
     height: 4px;
-    background-color: hsl(240, 0%, 80%);
+    background-color: hsl(240, 0%, 35%);
     border: 1px solid hsl(240, 0%, 10%);
     border-radius: 50%;
-    margin-bottom: 1em;
 }
 
 .scanner {
@@ -178,7 +182,7 @@ article:hover .scanner {
     border-radius: 50%;
     width: 30%;
     height: 100%;
-    background-color: hsl(240, 0%, 35%);
+    background-color: hsl(240, 0%, 85%);
     box-shadow: 0px 0px 6px hsl(240, 0%, 40%);
     position: relative;
 }
@@ -209,7 +213,23 @@ article:hover .scanner {
 .modal-data {
     display: flex;
     flex-wrap: wrap-reverse;
-    width: 90%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-data ul {
+    width: 100%;
+    padding-left: 1.1em;
+    font-size: smaller;
+}
+
+.modal-data span:first-child {
+    font-weight: bolder;
+}
+
+.data {
+    padding-left: 0.5rem;
 }
 
 .modal-data img {
@@ -230,7 +250,7 @@ article:hover .scanner {
     cursor: pointer;
 }
 
-@media screen and (768px <= width < 1200px) {
+@media screen and (568px <= width < 1000px) {
     .control {
         width: 15%;
     }
@@ -247,9 +267,14 @@ article:hover .scanner {
     nav li {
         padding-left: 2em;
     }
+
+    .modal-data ul,
+    .jumbotron .description {
+        font-size: medium;
+    }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
     .control {
         width: 20%;
     }
@@ -266,12 +291,22 @@ article:hover .scanner {
     nav li {
         padding-left: 3em;
     }
+
+    .modal-data ul,
+    .jumbotron .description {
+        font-size: medium;
+    }
 }
+
 
 @media screen and (orientation: portrait) {
     h1,
-    h2 {
+    h3 {
         padding-left: 0.4em;
+    }
+
+    aside {
+        display: none;
     }
 
     .control button {
