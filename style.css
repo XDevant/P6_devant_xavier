@@ -52,16 +52,11 @@ h1 {
 }
 
 h2 {
-    display:none
-}
-
-h3 {
     padding-top: 1em;
 }
 
 h1,
-h2,
-h3 {
+h2 {
     font-family: "Merriweather", serif;
     padding-left: 1em;
 }
@@ -301,7 +296,7 @@ article:hover .scanner {
 
 @media screen and (orientation: portrait) {
     h1,
-    h3 {
+    h2 {
         padding-left: 0.4em;
     }
 
